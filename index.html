@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACG - Gerenciador de Gastos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ACG - Assistente de Controle de Gastos</h1>
+      <div class="saldo">R$ 0,00</div>
+      <div class="gastos-mes">Gastos deste mês: R$ 0,00</div>
+      <button id="adicionarDespesa">Adicionar despesa</button>
+      <button id="adicionarReceita">Adicionar receita</button>
+    </header>
+
+    <section class="grafico-container">
+      <canvas id="graficoPizza" height="200"></canvas>
+    </section>
+
+    <h2>Despesas por categoria</h2>
+    <table id="tabela">
+      <thead>
+        <tr>
+          <th>Transações</th>
+          <th>Valor</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="formContainer" style="display: none;">
+      <h2>Adicionar Movimento</h2>
+      <form id="formulario">
+        <input type="text" id="descricao" placeholder="Descrição" required />
+        <input type="number" id="valor" step="0.01" min="0.01" placeholder="Valor (R$)" required />
+        <select id="categoria" required>
+          <option value="Água">Água</option>
+          <option value="Luz">Luz</option>
+          <option value="Salário">Salário</option>
+          <option value="Manutenção">Manutenção</option>
+          <option value="Matéria-prima">Matéria-prima</option>
+          <option value="Outros">Outros</option>
+        </select>
+        <input type="date" id="data" required />
+        <button type="submit">Salvar Movimento</button>
+        <button type="button" id="cancelar">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
